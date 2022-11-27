@@ -12,17 +12,17 @@ export default function App() {
     let [currentFilterId, setCurrentFilterId] = useState(0);
 
 
-    // useEffect(() => {
-    //     fetch('https://jsonplaceholder.typicode.com/todos')
-    //     .then(response => response.json())
-    //     .then(json => json.map(item => { return {
-    //         id: item.id,
-    //         title: item.title,
-    //         isDone: item.completed,
-    //         isEditing: false
-    //     };}))
-    //     .then(items => setTodoItems(items.slice(0, 3)));
-    // }, []);
+    useEffect(() => {
+        fetch('https://jsonplaceholder.typicode.com/todos')
+        .then(response => response.json())
+        .then(json => json.map(item => { return {
+            id: item.id,
+            title: item.title,
+            isDone: item.completed,
+            isEditing: false
+        };}))
+        .then(items => setTodoItems(items.slice(0, 3)));
+    }, []);
 
     useEffect(() => {
         const itemsFromLS = localStorage.getItem("TODOS_REACT");
